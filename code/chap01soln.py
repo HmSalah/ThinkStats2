@@ -14,8 +14,8 @@ import nsfg
 import thinkstats2
 
 
-def ReadFemResp(dct_file='2002FemResp.dct',
-                dat_file='2002FemResp.dat.gz',
+def ReadFemResp(dct_file=r"C:\Users\Hamza\Desktop\Class Repo\ThinkStats2\code\2002FemResp.dct",
+                dat_file=r"C:\Users\Hamza\Desktop\Class Repo\ThinkStats2\code\2002FemResp.dat.gz",
                 nrows=None):
     """Reads the NSFG respondent data.
 
@@ -48,7 +48,7 @@ def ValidatePregnum(resp):
 
     # make the map from caseid to list of pregnancy indices
     preg_map = nsfg.MakePregMap(preg)
-    
+
     # iterate through the respondent pregnum series
     for index, pregnum in resp.pregnum.items():
         caseid = resp.caseid[index]
@@ -70,9 +70,9 @@ def main(script):
     """
     resp = ReadFemResp()
 
-    assert(len(resp) == 7643)
-    assert(resp.pregnum.value_counts()[1] == 1267)
-    assert(ValidatePregnum(resp))
+    assert (len(resp) == 7643)
+    assert (resp.pregnum.value_counts()[1] == 1267)
+    assert (ValidatePregnum(resp))
 
     print('%s: All tests passed.' % script)
 
